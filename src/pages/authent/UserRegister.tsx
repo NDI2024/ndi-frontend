@@ -1,5 +1,10 @@
 import {useTranslation} from "react-i18next";
-import {InputWithLabel, PasswordValidation, TextValidation} from "components/form/inputs/inputWithLabel";
+import {
+    EmailValidation,
+    InputWithLabel,
+    PasswordValidation,
+    TextValidation
+} from "components/form/inputs/inputWithLabel";
 import {useState} from "react";
 import {Link} from "components/generic/link";
 import {Button} from "components/generic/button";
@@ -7,12 +12,13 @@ import {LogoWithName} from "components/generic/logos/logoWithName";
 import {Form} from "components/form/form";
 import {FieldValues} from "react-hook-form";
 import {toastError} from "utils/toast";
-import {LoginUser} from "services/user/tenant";
+import {RegisterUser} from "services/user/tenant";
 import {useDispatch} from "react-redux";
 import {setUser} from "store/actions/userActions";
 import {decodeJwt} from "utils/jwt";
+import {getRoutePathByName} from "utils/routes";
 
-export const TenantLogin = () => {
+export const UserRegister = () => {
     const {t} = useTranslation();
     const dispatch = useDispatch()
 
@@ -20,9 +26,14 @@ export const TenantLogin = () => {
 
     const submitForm = async (data: FieldValues) => {
         setLoginLoading(true)
-        const {user, password} = data
+        const {user, email, password, passwordConfirmation} = data
+        if (password !== passwordConfirmation) {
+            toastError(t('Error.Passwords do not match'))
+            setLoginLoading(false)
+            return
+        }
         try {
-            const req = await LoginUser(user, password)
+            const req = await RegisterUser(user, password, email)
 
             switch (req.status) {
                 case 422:
@@ -51,28 +62,44 @@ export const TenantLogin = () => {
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                                 {
-                                    t('Label.Connection')
+                                    t('Label.Register')
                                 }
                             </h1>
                             <Form submitFn={data => submitForm(data)}>
                                 <div className="space-y-4 md:space-y-6">
                                     <div>
-                                        <InputWithLabel type={'email'} label={t('Label.User')}
+                                        <InputWithLabel type={'text'} label={t('Label.User')}
                                                         placeholder={t('Label.User')}
                                                         name={'user'}
                                                         validationOptions={TextValidation}/>
+                                    </div>
+                                    <div>
+                                        <InputWithLabel type={'email'} label={t('Label.Email')}
+                                                        placeholder={t('Label.Email')}
+                                                        name={'email'}
+                                                        validationOptions={EmailValidation}/>
                                     </div>
                                     <div>
                                         <InputWithLabel type={'password'} label={t('Label.Password')}
                                                         placeholder={'••••••••'} name={'password'}
                                                         validationOptions={PasswordValidation}/>
                                     </div>
+                                    <div>
+                                        <InputWithLabel type={'password'} label={t('Label.Password confirmation')}
+                                                        placeholder={'••••••••'} name={'passwordConfirmation'}
+                                                        validationOptions={PasswordValidation}/>
+                                    </div>
                                     <div className="flex items-center justify-end">
-                                        <Link to={'/'}>{t('Label.Forgot password ?')}</Link>
+                                        <Link to={getRoutePathByName('app.login')}>
+                                            {
+                                                t('Text.Already have an account?')
+                                            }
+                                        </Link>
                                     </div>
                                     <Button type="submit" loading={loginLoading}>
-                                        {t('Label.Sign in')}
+                                        {t('Label.Register')}
                                     </Button>
+
                                 </div>
                             </Form>
                         </div>

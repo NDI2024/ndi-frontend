@@ -29,6 +29,10 @@ export const PasswordValidation = {
     minLength: {
         value: 8,
         message: 'Error.PasswordTooShort'
+    },
+    pattern: {
+        value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[\S]{8,}$/,
+        message: 'Error.PasswordNotStrong'
     }
 }
 

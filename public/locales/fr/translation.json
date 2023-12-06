@@ -48,7 +48,9 @@
     "Quantity": "Quantité",
     "Description": "Description",
     "Research": "Rechercher",
-    "User": "Utilisateur"
+    "User": "Utilisateur",
+    "Password confirmation": "Confirmation du mot de passe",
+    "Register": "S'inscrire"
   },
   "Text": {
     "Client added": "Client ajouté",
@@ -81,7 +83,9 @@
     "Deleting the category will erase all its data. This action is irreversible.": "La suppression de la catégorie effacera toutes ses données. Cette action est irréversible.",
     "Deleting the product will erase all its data. This action is irreversible.": "La suppression du produit effacera toutes ses données. Cette action est irréversible.",
     "Edit category": "Modifier la catégorie",
-    "Active category": "Catégorie active"
+    "Active category": "Catégorie active",
+    "Already have an account?": "Déjà un compte ?",
+    "Create an account": "Créer un compte"
   },
   "Error": {
     "EmptyInput": "Champ requis",
@@ -93,7 +97,9 @@
     "Unknown user": "Utilisateur inconnu",
     "Account not activated": "Compte non activé",
     "Client does not have users": "Le client n'a pas d'utilisateurs",
-    "NegativeNumber": "Le champ doit être positif"
+    "NegativeNumber": "Le champ doit être positif",
+    "PasswordNotStrong": "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre",
+    "Passwords do not match": "Les mots de passe ne correspondent pas"
   },
   "Success": {
     "The user has been created": "L'utilisateur a été créé",

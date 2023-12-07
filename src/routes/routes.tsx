@@ -14,7 +14,6 @@ export const Routes = [
     {path: '/login', element: <RedirectIfTenantAuthenticated Component={<UserLogin/>}/>, name: 'app.login'},
     {path: '/register', element: <RedirectIfTenantAuthenticated Component={<UserRegister/>}/>, name: 'app.register'},
     {path: '/dashboard', element: <WithTenantAuthentication Component={<UserDashboard/>}/>, name: 'app.dashboard'},
-    {path: '/memory', element: <RedirectIfTenantAuthenticated Component={<MemoryMainPage/>}/>, name: 'app.memory'},
 
     // Errors routes
     {path: '/errors/403', element: <Page403/>, name: 'errors.403'},

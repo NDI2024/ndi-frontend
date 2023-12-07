@@ -1,10 +1,10 @@
-import {BsQuestionSquare} from "react-icons/bs";
+import memBack from "assets/illustrations/memBack.png";
 
 export const MemoryCard = ({cardData}: any) => {
     return (
         <>
-            <div className="p-4 bg-gray-50 max-w-2xl flex items-center justify-center">
-                <BsQuestionSquare className="text-6xl" />
+            <div className="w-full flex items-center justify-center">
+                <img src={memBack} alt="card back" className="md:h-24 max-sm:w-full cursor-pointer"/>
             </div>
         </>)
 }

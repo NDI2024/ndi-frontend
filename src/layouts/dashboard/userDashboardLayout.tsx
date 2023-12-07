@@ -1,11 +1,11 @@
 import React from "react";
 import "flowbite";
-import {Navbar} from "components/navigation/navbar";
 import Sidebar from "components/navigation/sidebar";
 import {NavButton} from "components/navigation/navButton";
 import {TiHome} from "react-icons/ti";
 import {getRoutePathByName} from "utils/routes";
 import {useTranslation} from "react-i18next";
+import {FaTrophy} from "react-icons/fa";
 
 interface Props {
     children?: React.ReactNode
@@ -16,7 +16,6 @@ export const UserDashboardLayout = ({children}: Props) => {
 
     return (
         <>
-            <Navbar/>
             <Sidebar>
                 <Sidebar.Content>
                     <ul className="space-y-2 font-medium">
@@ -24,11 +23,14 @@ export const UserDashboardLayout = ({children}: Props) => {
                             <NavButton to={getRoutePathByName('app.dashboard')} icon={<TiHome/>}
                                        text={t('Label.Home page')}/>
                         </li>
+                        <li>
+                            <NavButton to={'/'} icon={<FaTrophy/>} text={t('Label.Classment')}/>
+                        </li>
                     </ul>
                 </Sidebar.Content>
             </Sidebar>
-            <div className="p-4 sm:ml-64 bg-gray-50 min-h-screen">
-                <div className="p-4 mt-14">
+            <div className="md:ml-20 bg-gray-50 min-h-screen">
+                <div>
                     {children}
                 </div>
             </div>

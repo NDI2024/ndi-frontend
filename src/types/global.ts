@@ -14,3 +14,13 @@ export interface Jwt {
     iat: number;
     nbf: number;
 }
+
+export interface CardData {
+    id: string;
+    title: string;
+    imagePath: string;
+    shortDescription: string;
+    description: string;
+    link: string;
+
+}

@@ -1,6 +1,11 @@
 import memBack from "assets/illustrations/memBack.png";
+import {CardData} from "types/global";
 
-export const MemoryCard = ({cardData}: any) => {
+interface Props {
+    cardData: CardData
+}
+
+export const MemoryCard = ({cardData}: Props) => {
     return (
         <>
             <div className="w-full flex items-center justify-center">

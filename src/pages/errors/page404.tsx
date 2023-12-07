@@ -1,5 +1,4 @@
 import Tetris from "data/tetris/components/Tetris";
-import {Button} from "components/generic/button";
 
 export const Page404 = () => {
     return (

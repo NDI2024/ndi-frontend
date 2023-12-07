@@ -5,14 +5,13 @@ import Sidebar from "components/navigation/sidebar";
 import {NavButton} from "components/navigation/navButton";
 import {TiHome} from "react-icons/ti";
 import {getRoutePathByName} from "utils/routes";
-import {ImUsers} from "react-icons/im";
 import {useTranslation} from "react-i18next";
 
 interface Props {
     children?: React.ReactNode
 }
 
-export const AdminDashboardLayout = ({children}: Props) => {
+export const UserDashboardLayout = ({children}: Props) => {
     const {t} = useTranslation()
 
     return (
@@ -22,7 +21,7 @@ export const AdminDashboardLayout = ({children}: Props) => {
                 <Sidebar.Content>
                     <ul className="space-y-2 font-medium">
                         <li>
-                            <NavButton to={getRoutePathByName('admin.dashboard')} icon={<TiHome/>}
+                            <NavButton to={getRoutePathByName('app.dashboard')} icon={<TiHome/>}
                                        text={t('Label.Home page')}/>
                         </li>
                     </ul>

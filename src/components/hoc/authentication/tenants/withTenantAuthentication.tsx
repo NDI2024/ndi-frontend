@@ -9,8 +9,7 @@ interface Props {
 
 export const WithTenantAuthentication = ({Component}: Props): JSX.Element => {
     const user = getUser()
-    console.log(user)
     const loginPath = getRoutePathByName('app.login')
 
-    return user ? <Navigate to={loginPath ?? ''}/> : <Navigate to={loginPath}/>
+    return user ? Component: <Navigate to={loginPath}/>
 }

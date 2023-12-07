@@ -4,7 +4,7 @@ import {getApiRoutePathByName} from "utils/routes";
 export const LoginUser = async (username: string, password: string) => {
     const routePath = getApiRoutePathByName('auth.login');
 
-    return await axios.get(routePath, {data: {username, password}});
+    return await axios.post(routePath, {username, password});
 }
 
 export const RegisterUser = async (username: string, password: string, email: string) => {

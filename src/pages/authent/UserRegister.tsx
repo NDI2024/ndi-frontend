@@ -12,7 +12,7 @@ import {LogoWithName} from "components/generic/logos/logoWithName";
 import {Form} from "components/form/form";
 import {FieldValues} from "react-hook-form";
 import {toastError} from "utils/toast";
-import {RegisterUser} from "services/user/tenant";
+import {RegisterUser} from "services/user/user";
 import {useDispatch} from "react-redux";
 import {setUser} from "store/actions/userActions";
 import {decodeJwt} from "utils/jwt";

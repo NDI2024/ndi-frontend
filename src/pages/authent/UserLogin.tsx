@@ -1,5 +1,5 @@
 import {useTranslation} from "react-i18next";
-import {InputWithLabel, PasswordValidation, TextValidation} from "components/form/inputs/inputWithLabel";
+import {InputWithLabel, TextValidation} from "components/form/inputs/inputWithLabel";
 import {useState} from "react";
 import {Link} from "components/generic/link";
 import {Button} from "components/generic/button";
@@ -7,7 +7,7 @@ import {LogoWithName} from "components/generic/logos/logoWithName";
 import {Form} from "components/form/form";
 import {FieldValues} from "react-hook-form";
 import {toastError} from "utils/toast";
-import {LoginUser} from "services/user/tenant";
+import {LoginUser} from "services/user/user";
 import {useDispatch} from "react-redux";
 import {setUser} from "store/actions/userActions";
 import {decodeJwt} from "utils/jwt";
@@ -66,7 +66,7 @@ export const UserLogin = () => {
                                     <div>
                                         <InputWithLabel type={'password'} label={t('Label.Password')}
                                                         placeholder={'••••••••'} name={'password'}
-                                                        validationOptions={PasswordValidation}/>
+                                                        validationOptions={TextValidation}/>
                                     </div>
                                     <div className="flex items-center justify-end">
                                         <Link to={getRoutePathByName('app.register')}>

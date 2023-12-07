@@ -16,14 +16,14 @@ export const CardDescription = ({title, description, image}: Props) => {
     }
 
     return (
-        <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full user-select-none fade-in-up">
+        <div className="bg-white shadow-md rounded px-6 pt-4 pb-4 mb-4 w-full fade-in-up">
             <div className="flex flex-row w-full">
                 <div className="flex flex-col w-1/5">
                     <img className="w-24 h-24 rounded-full mx-auto" src={image} alt="logo"/>
                 </div>
-                <div className="flex flex-col w-3/5">
-                    <div className="text-center font-bold text-xl mb-2">{title}</div>
-                    <p className="text-gray-700 text-base text-center">{description.substring(0, 100)}...</p>
+                <div className="flex flex-col w-3/5 mr-3">
+                    <div className="text-left font-bold text-xl mb-2">{title}</div>
+                    <p className="text-gray-700 text-base text-left">{description.substring(0, 100)}...</p>
                 </div>
                 <div className="flex flex-col w-1/5">
                     <div className="text-center font-bold text-xl mb-2 cursor-pointer hover:text-blue-500 duration-75 text-blue-800 active:text-blue-900" onClick={onCardClicked}>
@@ -32,12 +32,10 @@ export const CardDescription = ({title, description, image}: Props) => {
                 </div>
             </div>
 
-            <Drawer headerTitle="" customOpened={drawerOpened} setCustomOpened={setDrawerOpened}>
+            <Drawer headerTitle={title} customOpened={drawerOpened} setCustomOpened={setDrawerOpened}>
                 <Drawer.Body>
                     <div className="flex flex-col w-full">
                         <div className="flex flex-col w-full">
-                            <div className="font-bold text-xl mb-2">{title}</div>
-
                             <img className="w-24 h-24 rounded-full mx-auto" src={image} alt="Image"/>
 
                             <p className="text-gray-700 text-base">{description}</p>

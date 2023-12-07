@@ -5,6 +5,7 @@ import {UserDashboard} from "pages/tenant/UserDashboard";
 import {RedirectIfTenantAuthenticated} from "components/hoc/authentication/tenants/redirectIfTenantAuhenticated";
 import {WithTenantAuthentication} from "components/hoc/authentication/tenants/withTenantAuthentication";
 import {Page403} from "pages/errors/page403";
+import {Page404} from "pages/errors/page404";
 import {UserRegister} from "pages/authent/UserRegister";
 
 export const Routes = [
@@ -16,6 +17,7 @@ export const Routes = [
 
     // Errors routes
     {path: '/errors/403', element: <Page403/>, name: 'errors.403'},
+    {path: '*', element: <Page404/>, name: 'errors.404'},
 ]
 
 export const ApiRoutes = [

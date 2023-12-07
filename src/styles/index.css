@@ -1,4 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Tetris */
+.game-block {
+    margin: 0;
+    padding: 0;
+    width: 2em;
+    height: 2em;
+    background-image: url("/public/bgcube.png");
+    background-size: cover;
+}
+
+.piece-i {
+    background-image: url("/public/gifs/block_1.gif");
+    background-size: cover;
+}
+
+.piece-j {
+    background-image: url("/public/gifs/block_2.gif");
+    background-size: cover;
+}
+
+.piece-l {
+    background-image: url("/public/gifs/block_3.gif");
+    background-size: cover;
+}
+
+.piece-o {
+    background-image: url("/public/gifs/block_4.gif");
+    background-size: cover;
+}
+
+.piece-s {
+    background-image: url("/public/gifs/block_5.gif");
+    background-size: cover;
+}
+
+.piece-t {
+    background-image: url("/public/gifs/block_6.gif");
+    background-size: cover;
+}
+
+.piece-z {
+    background-image: url("/public/gifs/block_7.gif");
+    background-size: cover;
+}
+
+.tetris {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100vw;
+    height: 100%;
+    max-height: 100vh;
+}
+
+.tetris > .tetris-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.text-pixel {
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.tetris > .tetris-container > .tetris-game-over {
+    margin-left: 1em;
+}
+
+.piece-preview {
+    background-color: #eee;
+}
+
+.tetris-results {
+    background: url("/public/display_1.png");
+    background-size: cover;
+    height: 28px;
+    width: 320px;
+    padding-top: 3px;
+    color: white;
+}
+
+.tetris-ng-btn {
+    background-image: url("/public/rejouer.png");
+    background-size: cover;
+    width: 128px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.tetris-ng-btn:active {
+    background-image: url("/public/rejouer_pushed.png");
+}

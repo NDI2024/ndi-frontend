@@ -12,10 +12,13 @@ import {useDispatch} from "react-redux";
 import {setUser} from "store/actions/userActions";
 import {decodeJwt} from "utils/jwt";
 import {getRoutePathByName} from "utils/routes";
+import {setJwtToLocalStorage} from "../../utils/localStorage";
+import {useNavigate} from "react-router-dom";
 
 export const UserLogin = () => {
     const {t} = useTranslation();
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const [loginLoading, setLoginLoading] = useState(false)
 
@@ -30,8 +33,10 @@ export const UserLogin = () => {
                     toastError(t('Error.Email no valid'))
                     break
                 case 200:
-                    const jwt = decodeJwt(req.data)
-                    dispatch(setUser(jwt))
+                    const jwt = req.data
+                    setJwtToLocalStorage(jwt)
+                    dispatch(setUser(decodeJwt(jwt)))
+                    navigate(getRoutePathByName('app.dashboard'))
                     break
             }
         } catch (error) {

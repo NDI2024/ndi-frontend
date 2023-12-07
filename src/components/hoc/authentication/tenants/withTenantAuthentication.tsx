@@ -1,7 +1,6 @@
 import React from "react";
 import {Navigate} from "react-router-dom";
 import {getRoutePathByName} from "utils/routes";
-import {LoadingSpinnerAnimation} from "components/loading/loadingSpinnerAnimation";
 import {getUser} from "utils/user";
 
 interface Props {
@@ -10,9 +9,8 @@ interface Props {
 
 export const WithTenantAuthentication = ({Component}: Props): JSX.Element => {
     const user = getUser()
+    console.log(user)
     const loginPath = getRoutePathByName('app.login')
 
-    const [loading] = React.useState<boolean>(true)
-
-    return user ? loading ? <LoadingSpinnerAnimation/> : Component : <Navigate to={loginPath ?? ''}/>
+    return user ? <Navigate to={loginPath ?? ''}/> : <Navigate to={loginPath}/>
 }

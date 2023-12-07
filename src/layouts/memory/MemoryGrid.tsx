@@ -1,13 +1,18 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {MemoryCard} from "layouts/memory/MemoryCard";
 import {CardData} from "types/global";
 
 interface Props {
     cards: CardData[]
+    returnedCards: CardData[]
     selectCardFn: (card: CardData) => void
 }
 
-export const MemoryGrid = ({cards, selectCardFn}: Props) => {
+export const MemoryGrid = ({cards, selectCardFn, returnedCards}: Props) => {
+
+    useEffect(() => {
+        console.log(returnedCards)
+    }, [returnedCards])
 
     return (
         <>

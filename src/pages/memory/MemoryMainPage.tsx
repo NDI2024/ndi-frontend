@@ -1,7 +1,7 @@
 import {UserDashboardLayout} from "layouts/dashboard/userDashboardLayout";
 import {MemoryGrid} from "layouts/memory/MemoryGrid";
 import {CardDescription} from "components/card/card-description";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {CardData} from "types/global";
 
 const data: CardData[] = [
@@ -109,19 +109,20 @@ export const MemoryMainPage = () => {
     const [cardsReturned, setCardsReturned] = useState<CardData[]>([])
 
     const addCardReturned = (card: CardData) => {
-        if(cardsReturned.length < 2) {
+        if (cardsReturned.length < 2) {
             setCardsReturned([...cardsReturned, card])
-        }else{
+        } else {
             setCardsReturned([card])
         }
     }
 
     return (
         <UserDashboardLayout>
-            <MemoryGrid cards={cards} selectCardFn={(card) => setCardChecked(card)}/>
+            <MemoryGrid returnedCards={cardsReturned} cards={cards} selectCardFn={addCardReturned}/>
             {
                 cardChecked &&
-                <CardDescription title={cardChecked.title} description={cardChecked.shortDescription} image={cardChecked.imagePath}/>
+                <CardDescription title={cardChecked.title} description={cardChecked.shortDescription}
+                                 image={cardChecked.imagePath}/>
             }
         </UserDashboardLayout>
     )

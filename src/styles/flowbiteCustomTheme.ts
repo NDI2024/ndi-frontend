@@ -11,6 +11,13 @@ export const FlowbiteCustomTheme: CustomFlowbiteTheme = {
                             on: "text-primary-600 rounded-t-lg border-b-2 border-primary-600 active dark:text-cyan-500 dark:border-cyan-500"
                         }
                     },
+                    fullWidth: {
+                        base: "ml-0 first:ml-0 w-full rounded-none flex",
+                        active: {
+                            on: "p-4 text-white bg-primary-600 font-bold active dark:bg-gray-700 dark:text-white rounded-none",
+                            off: "bg-white hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700 rounded-none"
+                        }
+                    }
                 }
             }
         }

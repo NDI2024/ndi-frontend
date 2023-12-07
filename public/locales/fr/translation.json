@@ -50,7 +50,10 @@
     "Research": "Rechercher",
     "User": "Utilisateur",
     "Password confirmation": "Confirmation du mot de passe",
-    "Register": "S'inscrire"
+    "Register": "S'inscrire",
+    "Classment": "Classement",
+    "Memory game": "Jeu de mémoire",
+    "Fast game": "Jeu de rapidité"
   },
   "Text": {
     "Client added": "Client ajouté",

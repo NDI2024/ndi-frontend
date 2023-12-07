@@ -18,10 +18,10 @@ export const NavButton = ({to, icon, text, notification, activeUrls = []}: Props
         <Link to={to}
               className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white  group ${isActive ? 'bg-primary-600 text-white font-semibold' : 'hover:bg-gray-100 dark:hover:bg-gray-700'}`}>
             <div
-                className={`text-lg transition duration-75 dark:text-gray-400  ${isActive ? 'text-white' : 'text-gray-500 group-hover:text-gray-900 dark:group-hover:text-white'}`}>
+                className={`text-lg md:flex md:justify-center md:w-full transition duration-75 dark:text-gray-400 ${isActive ? 'text-white' : 'text-gray-500 group-hover:text-gray-900 dark:group-hover:text-white'}`}>
                 {icon}
             </div>
-            <span className="flex-1 ml-3 whitespace-nowrap">{text}</span>
+            <span className="flex-1 ml-3 whitespace-nowrap md:hidden">{text}</span>
             {
                 notification &&
                 <span

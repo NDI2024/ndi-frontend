@@ -113,6 +113,7 @@
     "Category deleted successfully": "Catégorie supprimée avec succès",
     "Category updated successfully": "Catégorie mise à jour avec succès",
     "Product deleted successfully": "Produit supprimé avec succès",
-    "Product updated successfully": "Produit mis à jour avec succès"
+    "Product updated successfully": "Produit mis à jour avec succès",
+    "User created successfully": "Utilisateur créé avec succès"
   }
 }

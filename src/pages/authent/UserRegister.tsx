@@ -11,16 +11,17 @@ import {Button} from "components/generic/button";
 import {LogoWithName} from "components/generic/logos/logoWithName";
 import {Form} from "components/form/form";
 import {FieldValues} from "react-hook-form";
-import {toastError} from "utils/toast";
+import {toastError, toastSuccess} from "utils/toast";
 import {RegisterUser} from "services/user/user";
 import {useDispatch} from "react-redux";
 import {setUser} from "store/actions/userActions";
 import {decodeJwt} from "utils/jwt";
 import {getRoutePathByName} from "utils/routes";
+import {useNavigate} from "react-router-dom";
 
 export const UserRegister = () => {
     const {t} = useTranslation();
-    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const [loginLoading, setLoginLoading] = useState(false)
 
@@ -33,17 +34,9 @@ export const UserRegister = () => {
             return
         }
         try {
-            const req = await RegisterUser(user, password, email)
-
-            switch (req.status) {
-                case 422:
-                    toastError(t('Error.Email no valid'))
-                    break
-                case 200:
-                    const jwt = decodeJwt(req.data)
-                    dispatch(setUser(jwt))
-                    break
-            }
+            await RegisterUser(user, password, email)
+            toastSuccess(t('Success.User created successfully'))
+            navigate(getRoutePathByName('app.login'))
         } catch (error) {
             toastError(t('Error.An error has occurred'))
         }

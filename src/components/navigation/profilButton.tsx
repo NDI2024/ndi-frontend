@@ -4,7 +4,8 @@ import {PiUserCircleThin} from "react-icons/pi";
 import {useTranslation} from "react-i18next";
 import {VscDebugDisconnect} from "react-icons/vsc";
 import {useDispatch} from "react-redux";
-import {getUser} from "utils/user";
+import {getUser, LogoutUser} from "utils/user";
+import {clearUser} from "store/actions/userActions";
 
 export const ProfilButton = () => {
 
@@ -12,6 +13,11 @@ export const ProfilButton = () => {
     const dispatch = useDispatch()
 
     const user = getUser()
+
+    const logout = () => {
+        LogoutUser()
+        dispatch(clearUser())
+    }
 
     return (
         <div className="flex items-center ml-3">
@@ -32,9 +38,9 @@ export const ProfilButton = () => {
                         </div>
                         <ul className="py-1" role="none">
                             <li>
-                                <button
-                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                    role="menuitem">
+                                <button onClick={() => logout()}
+                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        role="menuitem">
                                     <VscDebugDisconnect className={'inline-block mr-2'}/>
                                     {t('Label.Sign out')}
                                 </button>

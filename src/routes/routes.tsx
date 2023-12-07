@@ -22,6 +22,7 @@ export const ApiRoutes = [
     // Authentication routes
     {path: '/users/login', name: 'auth.login'},
     {path: '/users/register', name: 'auth.register'},
+    {path: '/me', name: 'auth.me'},
 ]
 
 export const router = createBrowserRouter(Routes)

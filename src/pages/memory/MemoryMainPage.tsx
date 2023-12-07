@@ -110,6 +110,7 @@ export const MemoryMainPage = () => {
 
     const addCardReturned = (card: CardData) => {
         if (cardsReturned.length < 2) {
+            setCardChecked(card)
             setCardsReturned([...cardsReturned, card])
         } else {
             setCardsReturned([card])
@@ -120,9 +121,12 @@ export const MemoryMainPage = () => {
         <UserDashboardLayout>
             <MemoryGrid returnedCards={cardsReturned} cards={cards} selectCardFn={addCardReturned}/>
             {
-                cardChecked &&
-                <CardDescription title={cardChecked.title} description={cardChecked.shortDescription}
-                                 image={cardChecked.imagePath}/>
+                cardChecked && (
+                    <div className={"fixed bottom-0 right-0 w-full"}>
+                        <CardDescription title={cardChecked.title} description={cardChecked.shortDescription}
+                                         image={cardChecked.imagePath}/>
+                    </div>
+                )
             }
         </UserDashboardLayout>
     )

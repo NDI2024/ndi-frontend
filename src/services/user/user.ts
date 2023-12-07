@@ -12,3 +12,8 @@ export const RegisterUser = async (username: string, password: string, email: st
 
     return await axios.post(routePath, {username, password, email});
 }
+
+export const GetMe = async () => {
+    const path = getApiRoutePathByName('auth.me');
+    return await axios.get(path)
+}

@@ -41,6 +41,25 @@ export const FastGameMain = ({index, setIndex, score, setScore}: any) => {
 
     if (loading) {
         return <LoadingSpinnerAnimation/>
+    } else if (questions.length === 0) {
+        return (
+            <>
+
+                <div className="justify-center items-center text-center">
+                    <div className="text-4xl">
+                        Erreur d'appel aux questions, essayez de relancer
+                    </div>
+                </div>
+
+                <div className={"flex justify-center items-center mt-8 w-2/5 mx-auto"}>
+                    <Button type={"button"} onClick={() => {
+                        setIndex(0);
+                        setScore(0);
+                    }}>Recommencer
+                    </Button>
+                </div>
+            </>
+        )
     } else if (index >= questions.length) {
         console.log(questions)
         return (

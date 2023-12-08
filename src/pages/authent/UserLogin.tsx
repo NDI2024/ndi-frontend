@@ -14,6 +14,7 @@ import {decodeJwt} from "utils/jwt";
 import {getRoutePathByName} from "utils/routes";
 import {setJwtToLocalStorage} from "../../utils/localStorage";
 import {useNavigate} from "react-router-dom";
+import {addBearerToken} from "utils/axios";
 
 export const UserLogin = () => {
     const {t} = useTranslation();
@@ -35,6 +36,7 @@ export const UserLogin = () => {
                 case 200:
                     const jwt = req.data
                     setJwtToLocalStorage(jwt)
+                    addBearerToken(jwt)
                     dispatch(setUser(decodeJwt(jwt)))
                     navigate(getRoutePathByName('app.dashboard'))
                     break

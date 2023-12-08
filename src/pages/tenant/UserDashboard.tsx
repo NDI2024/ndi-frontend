@@ -4,6 +4,7 @@ import {useTranslation} from "react-i18next";
 import {GiCardRandom} from "react-icons/gi";
 import {FastGameMain} from "layouts/fastGame/FastGameMain";
 import {useState} from "react";
+import {MemoryMainPage} from "pages/memory/MemoryMainPage";
 
 const questions = [
     {
@@ -32,11 +33,11 @@ const questions = [
             },
             {
                 answer: 'Vrai',
-                isCorrect: false,
+                isCorrect: true,
             },
             {
                 answer: 'Faux',
-                isCorrect: true,
+                isCorrect: false,
             },
         ]
     },

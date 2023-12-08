@@ -12,5 +12,5 @@ Un tetris dans le thème est mis à disposition ainsi qu'un leaderboard !
 Lien du site: https://ndi-frontend.vercel.app/
 
 Utilisateur de secours:
-- ndi2024
-- Motdepassendi2024!
+- user: zouzou123
+- mdp: Zouzou123!

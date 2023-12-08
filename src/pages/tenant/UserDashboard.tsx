@@ -25,7 +25,7 @@ const questions = [
         ]
     },
     {
-        question: 'Question2',
+        question: 'Quest',
         answers: [
             {
                 answer: 'Faux',

@@ -21,6 +21,17 @@ export const RequiredValidation = {
     }
 }
 
+export const UserValidation = {
+    required: {
+        value: true,
+        message: 'Error.EmptyInput'
+    },
+    minLength: {
+        value: 5,
+        message: 'Error.UsernameTooShort'
+    }
+}
+
 export const PasswordValidation = {
     required: {
         value: true,

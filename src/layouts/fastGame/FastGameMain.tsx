@@ -61,7 +61,6 @@ export const FastGameMain = ({index, setIndex, score, setScore}: any) => {
             </>
         )
     } else if (index >= questions.length) {
-        console.log(questions)
         return (
             <div className="w-full h-screen flex justify-center items-center">
                 <div className="w-full h-screen justify-center items-center">

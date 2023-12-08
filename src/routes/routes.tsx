@@ -5,6 +5,7 @@ import {UserDashboard} from "pages/tenant/UserDashboard";
 import {RedirectIfTenantAuthenticated} from "components/hoc/authentication/tenants/redirectIfTenantAuhenticated";
 import {WithTenantAuthentication} from "components/hoc/authentication/tenants/withTenantAuthentication";
 import {Page403} from "pages/errors/page403";
+import {Page404} from "pages/errors/page404";
 import {UserRegister} from "pages/authent/UserRegister";
 import {MemoryMainPage} from "pages/memory/MemoryMainPage";
 import {MemoryLeaderboard} from "pages/memory/MemoryLeaderboard";
@@ -20,6 +21,7 @@ export const Routes = [
 
     // Errors routes
     {path: '/errors/403', element: <Page403/>, name: 'errors.403'},
+    {path: '*', element: <Page404/>, name: 'errors.404'},
 ]
 
 export const ApiRoutes = [
@@ -29,6 +31,8 @@ export const ApiRoutes = [
     {path: '/me', name: 'auth.me'},
     {path: '/leaderboard', name: 'leaderboard.get' },
     {path: '/leaderboard/me', name: 'leaderboard.me.get' },
+    {path: '/memorycards/:number', name: 'memorycards.get'},
+    {path: '/scores', name: 'scores.post'},
 ]
 
 export const router = createBrowserRouter(Routes)

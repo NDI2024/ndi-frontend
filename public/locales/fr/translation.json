@@ -53,9 +53,11 @@
     "Register": "S'inscrire",
     "Classment": "Classement",
     "Memory game": "Jeu de mémoire",
-    "Fast game": "Jeu de rapidité",
     "Username": "Nom d'utilisateur",
-    "Rank": "Rang"
+    "Rank": "Rang",
+    "Fast game": "Jeu de rapidité",
+    "Details": "Détails",
+    "Replay": "Rejouer"
   },
   "Text": {
     "Client added": "Client ajouté",

@@ -44,7 +44,7 @@ export const MemoryLeaderboard = () => {
 
     return (
         <UserDashboardLayout>
-            <div className="p-4 pt-2 bg-primary-100 w-full h-full">
+            <div className="pl-20 pt-2 bg-primary-100 w-full h-full">
                 <h2 className="text-2xl font-bold text-left mb-3 sticky top-0 pt-6 bg-primary-100">
                     {t('Label.Classment')}
                     <hr className="my-2" />

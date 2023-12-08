@@ -29,10 +29,8 @@ export const UserDashboardLayout = ({children}: Props) => {
                     </ul>
                 </Sidebar.Content>
             </Sidebar>
-            <div className="md:ml-20 bg-gray-50 min-h-screen">
-                <div>
-                    {children}
-                </div>
+            <div className="h-full max-h-full overflow-y-auto md:pl-10 w-full">
+                {children}
             </div>
         </>
     )

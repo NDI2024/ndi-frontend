@@ -1,10 +1,22 @@
-import {BsQuestionSquare} from "react-icons/bs";
+import memBack from "assets/illustrations/memBack.png";
+import {CardData} from "types/global";
+import {useEffect} from "react";
 
-export const MemoryCard = ({cardData}: any) => {
+interface Props {
+    cardData: CardData,
+    returned: boolean
+}
+
+export const MemoryCard = ({cardData, returned}: Props) => {
+
     return (
         <>
-            <div className="p-4 bg-gray-50 max-w-2xl flex items-center justify-center">
-                <BsQuestionSquare className="text-6xl" />
+            <div className="w-full flex items-center justify-center">
+                {
+                    !returned ?
+                        <img src={memBack} alt="card back" className="md:h-24 max-sm:w-full cursor-pointer"/> :
+                        <img src={cardData.imagePath} alt="card front" className="md:h-24 max-sm:w-full cursor-pointer"/>
+                }
             </div>
         </>)
 }

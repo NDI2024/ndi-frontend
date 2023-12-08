@@ -2,60 +2,30 @@ import {UserDashboardLayout} from "layouts/dashboard/userDashboardLayout";
 import Table from "components/table/table";
 import {useTranslation} from "react-i18next";
 import {FaTrophy} from "react-icons/fa";
-
-const data = [
-    {
-        username: "John Doe",
-        score: 10,
-        rank: 50,
-    },
-    {
-        username: "Jane Doe",
-        score: 20,
-        rank: 10,
-    },
-    {
-        username: "John Doe",
-        score: 50,
-        rank: 55,
-    },
-    {
-        username: "Jane Doe",
-        score: 22,
-        rank: 35,
-    },
-    {
-        username: "John Doe",
-        score: 154,
-        rank: 18,
-    },
-    {
-        username: "Jane Doe",
-        score: 27,
-        rank: 37,
-    },
-    {
-        username: "John Doe",
-        score: 18,
-        rank: 19,
-    },
-    {
-        username: "Jane Doe",
-        score: 46,
-        rank: 63,
-    },
-]
-
-const myData = [
-    {
-        username: "You",
-        score: 30,
-        rank: 30,
-    }
-]
+import {useState} from "react";
+import {GetLeaderboard, GetMyLeaderboard} from "services/leaderboard/leaderboard";
 
 export const MemoryLeaderboard = () => {
     const {t} = useTranslation()
+    const [leaderboard, setLeaderboard] = useState<any>([])
+    const [myLeaderboard, setMyLeaderboard] = useState<any>([])
+    const [podium, setPodium] = useState<any>([])
+
+    const fetchLeaderboard = async () => {
+        try {
+            const req = await GetLeaderboard()
+            const reqMe = await GetMyLeaderboard()
+            setLeaderboard(req.data.sort((a: { rank: number; }, b: { rank: number; }) => a?.rank - b?.rank))
+            setMyLeaderboard(reqMe.data)
+            setPodium(req.data.sort((a: { rank: number; }, b: { rank: number; }) => a?.rank - b?.rank).slice(0, 3))
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    useState(() => {
+        fetchLeaderboard()
+    })
 
     const columns = [
         {
@@ -68,11 +38,9 @@ export const MemoryLeaderboard = () => {
         },
         {
             Header: "Score",
-            accessor: "score"
+            accessor: "points"
         },
     ]
-
-    const podium = data.sort((a, b) => a.rank - b.rank).slice(0, 3)
 
     return (
         <UserDashboardLayout>
@@ -88,10 +56,10 @@ export const MemoryLeaderboard = () => {
                             <FaTrophy className="text-gray-500 text-2xl" />
                         </div>
                         <p className="text-center text-gray-500 font-bold text-lg">
-                            {podium[1].username}
+                            {podium[1]?.username}
                             <br />
                             <span className="text-gray-500 text-md">
-                                {podium[1].score}
+                                {podium[1]?.points}
                             </span>
                         </p>
                     </div>
@@ -100,10 +68,10 @@ export const MemoryLeaderboard = () => {
                             <FaTrophy className="text-yellow-500 text-3xl" />
                         </div>
                         <p className="text-center text-yellow-500 font-bold text-2xl">
-                            {podium[0].username}
+                            {podium[0]?.username}
                             <br />
                             <span className="text-gray-500 text-xl">
-                                {podium[0].score}
+                                {podium[0]?.points}
                             </span>
                         </p>
                     </div>
@@ -112,17 +80,17 @@ export const MemoryLeaderboard = () => {
                             <FaTrophy className="text-yellow-900 text-2xl" />
                         </div>
                         <p className="text-center text-yellow-900 font-bold">
-                            {podium[2].username}
+                            {podium[2]?.username}
                             <br />
                             <span className="text-xs text-gray-500">
-                                {podium[2].score}
+                                {podium[2]?.points}
                             </span>
                         </p>
                     </div>
                 </div>
 
                 <div className="fade-in-up">
-                    <Table data={myData.concat(data.sort((a, b) => a.rank - b.rank))} columns={columns}/>
+                    <Table data={myLeaderboard.concat(leaderboard)} columns={columns}/>
                 </div>
             </div>
         </UserDashboardLayout>

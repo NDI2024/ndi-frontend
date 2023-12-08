@@ -16,7 +16,7 @@ export const Routes = [
     {path: '/register', element: <RedirectIfTenantAuthenticated Component={<UserRegister/>}/>, name: 'app.register'},
     {path: '/dashboard', element: <WithTenantAuthentication Component={<UserDashboard/>}/>, name: 'app.dashboard'},
     {path: '/memory', element: <RedirectIfTenantAuthenticated Component={<MemoryMainPage/>}/>, name: 'app.memory'},
-    {path: '/leaderboard', element: <RedirectIfTenantAuthenticated Component={<MemoryLeaderboard/>}/>, name: 'app.leaderboard'},
+    {path: '/leaderboard', element: <WithTenantAuthentication Component={<MemoryLeaderboard/>}/>, name: 'app.leaderboard'},
 
     // Errors routes
     {path: '/errors/403', element: <Page403/>, name: 'errors.403'},
@@ -27,6 +27,8 @@ export const ApiRoutes = [
     {path: '/users/login', name: 'auth.login'},
     {path: '/users/register', name: 'auth.register'},
     {path: '/me', name: 'auth.me'},
+    {path: '/leaderboard', name: 'leaderboard.get' },
+    {path: '/leaderboard/me', name: 'leaderboard.me.get' },
 ]
 
 export const router = createBrowserRouter(Routes)

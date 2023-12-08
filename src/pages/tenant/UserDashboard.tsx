@@ -10,7 +10,7 @@ export const UserDashboard = () => {
 
     return (
         <UserDashboardLayout>
-            <Tabs aria-label="Full width tabs" style="fullWidth">
+            <Tabs aria-label="Full width tabs" style="fullWidth" className={'z-[0]'}>
                 <Tabs.Item title={t('Label.Memory game')} icon={GiCardRandom}>
                     <MemoryMainPage/>
                 </Tabs.Item>

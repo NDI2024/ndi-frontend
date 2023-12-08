@@ -37,7 +37,7 @@ const Drawer = ({headerTitle, customOpened, setCustomOpened, children}: Props) =
             </div>
 
             <div
-                className={`fixed flex flex-col top-0 right-0 z-[101] h-screen p-4 transition-transform ${showDrawer ? '' : 'translate-x-full'} bg-white w-96 dark:bg-gray-800`}>
+                className={`fixed flex flex-col top-0 right-0 z-[10001] h-screen p-4 transition-transform ${showDrawer ? '' : 'translate-x-full'} bg-white w-96 dark:bg-gray-800`}>
                 <div>
                     <h5 id="drawer-right-label"
                         className="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400">

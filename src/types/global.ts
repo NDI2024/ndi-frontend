@@ -22,5 +22,5 @@ export interface CardData {
     shortDescription: string;
     description: string;
     link: string;
-
+    index: number;
 }

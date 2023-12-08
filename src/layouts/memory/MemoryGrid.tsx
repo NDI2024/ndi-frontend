@@ -6,20 +6,25 @@ interface Props {
     cards: CardData[]
     returnedCards: CardData[]
     selectCardFn: (card: CardData) => void
+    cardsFound: CardData[]
 }
 
-export const MemoryGrid = ({cards, selectCardFn, returnedCards}: Props) => {
+export const MemoryGrid = ({cards, selectCardFn, returnedCards, cardsFound}: Props) => {
 
     useEffect(() => {
         console.log(returnedCards)
     }, [returnedCards])
 
+    const isReturned = (card: CardData) => {
+        return returnedCards.includes(card) || cardsFound.includes(card)
+    }
+
     return (
         <>
             <div className="grid grid-cols-3 md:grid-cols-4 md:grid-rows-3 gap-4 p-2 md:w-2/3 mx-auto">
                 {cards.map((card: CardData) => (
-                    <button onClick={() => selectCardFn(card)}>
-                        <MemoryCard key={card.title} cardData={card}/>
+                    <button className={'w-fit'} onClick={() => selectCardFn(card)}>
+                        <MemoryCard key={card.title} cardData={card} returned={isReturned(card)} />
                     </button>
                 ))}
             </div>

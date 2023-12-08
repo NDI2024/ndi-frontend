@@ -1,128 +1,70 @@
 import {UserDashboardLayout} from "layouts/dashboard/userDashboardLayout";
 import {MemoryGrid} from "layouts/memory/MemoryGrid";
 import {CardDescription} from "components/card/card-description";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {CardData} from "types/global";
-
-const data: CardData[] = [
-    {
-        id: "1",
-        title: "titre1",
-        description: "desc1",
-        shortDescription: "desc1",
-        imagePath: "https://picsum.photos/96/96",
-        link: ""
-    },
-    {
-        id: "2",
-        title: "titre2",
-        description: "desc2",
-        shortDescription: "desc2",
-        imagePath: "https://picsum.photos/96/96",
-        link: ""
-    },
-    {
-        id: "3",
-        title: "titre2",
-        description: "desc2",
-        shortDescription: "desc2",
-        imagePath: "https://picsum.photos/96/96",
-        link: ""
-    },
-    {
-        id: "4",
-        title: "titre2",
-        description: "desc2",
-        shortDescription: "desc2",
-        imagePath: "https://picsum.photos/96/96",
-        link: ""
-    },
-    {
-        id: "5",
-        title: "titre1",
-        description: "desc1",
-        shortDescription: "desc1",
-        imagePath: "https://picsum.photos/96/96",
-        link: ""
-    },
-    {
-        id: "6",
-        title: "titre2",
-        description: "desc2",
-        shortDescription: "desc2",
-        imagePath: "https://picsum.photos/96/96",
-        link: ""
-    },
-    {
-        id: "7",
-        title: "titre2",
-        description: "desc2",
-        shortDescription: "desc2",
-        imagePath: "https://picsum.photos/96/96",
-        link: ""
-    },
-    {
-        id: "8",
-        title: "titre2",
-        description: "desc2",
-        shortDescription: "desc2",
-        imagePath: "https://picsum.photos/96/96",
-        link: ""
-    },
-    {
-        id: "9",
-        title: "titre1",
-        description: "desc1",
-        shortDescription: "desc1",
-        imagePath: "https://picsum.photos/96/96",
-        link: ""
-    },
-    {
-        id: "10",
-        title: "titre2",
-        description: "desc2",
-        shortDescription: "desc2",
-        imagePath: "https://picsum.photos/96/96",
-        link: ""
-    },
-    {
-        id: "11",
-        title: "titre2",
-        description: "desc2",
-        shortDescription: "desc2",
-        imagePath: "https://picsum.photos/96/96",
-        link: ""
-    },
-    {
-        id: "12",
-        title: "titre2",
-        description: "desc2",
-        shortDescription: "desc2",
-        imagePath: "https://picsum.photos/96/96",
-        link: ""
-    },
-]
+import {GetMemoryCards} from "services/memoryCard";
+import {LoadingSpinnerAnimation} from "components/loading/loadingSpinnerAnimation";
 
 export const MemoryMainPage = () => {
     const [cardChecked, setCardChecked] = useState<CardData | null>(null)
-    const [cards, setCards] = useState<CardData[]>(data)
+    const [cards, setCards] = useState<CardData[]>([])
     const [cardsReturned, setCardsReturned] = useState<CardData[]>([])
+    const [cardsFound, setCardsFound] = useState<CardData[]>([])
+    const [loading, setLoading] = useState<boolean>(false)
 
     const addCardReturned = (card: CardData) => {
-        if (cardsReturned.length < 2) {
-            setCardsReturned([...cardsReturned, card])
-        } else {
-            setCardsReturned([card])
+        setCardsReturned([...cardsReturned, card])
+    }
+
+    const fetchCards = async () => {
+        setLoading(true)
+        try {
+            const req = await GetMemoryCards()
+            const cardsReq = [...req.data, ...req.data]
+            const cardsReqShuffled = cardsReq.sort(() => Math.random() - 0.5)
+            setCards(cardsReqShuffled.map((card: CardData, index: number) => {
+                return {...card, index}
+            }))
+        } catch (e) {
+            console.log(e)
+        } finally {
+            setLoading(false)
         }
     }
 
+    useEffect(() => {
+        Promise.all([fetchCards()]).catch(e => console.log(e))
+    }, [])
+
+    useEffect(() => {
+        if (cardsReturned.length > 2) {
+            setCardsReturned(cardsReturned.slice(0, 2))
+        }
+        if (cardsReturned.length === 2) {
+            if (cardsReturned[0].id === cardsReturned[1].id) {
+                setCardsFound([...cardsFound, cardsReturned[0], cardsReturned[1]])
+                // Add last returned card to cheked card
+                setCardChecked(cardsReturned[1])
+            }
+            setTimeout(() => {
+                setCardsReturned([])
+            }, 500)
+        }
+    }, [cardsReturned])
+
     return (
         <UserDashboardLayout>
-            <MemoryGrid returnedCards={cardsReturned} cards={cards} selectCardFn={addCardReturned}/>
+            <MemoryGrid cardsFound={cardsFound} returnedCards={cardsReturned} cards={cards}
+                        selectCardFn={addCardReturned}/>
             {
-                cardChecked &&
-                <CardDescription title={cardChecked.title} description={cardChecked.shortDescription}
-                                 image={cardChecked.imagePath}/>
+                loading ?
+                    <LoadingSpinnerAnimation/> :
+
+                    cardChecked &&
+                    <CardDescription title={cardChecked.title} description={cardChecked.shortDescription}
+                                     image={cardChecked.imagePath}/>
+
             }
         </UserDashboardLayout>
     )

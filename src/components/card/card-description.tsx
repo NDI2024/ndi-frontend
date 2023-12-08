@@ -16,9 +16,9 @@ export const CardDescription = ({title, description, image}: Props) => {
     }
 
     return (
-        <div className="bg-white shadow-md rounded px-6 pt-4 pb-4 mb-4 w-full fade-in-up">
+        <div className="bg-white shadow-md rounded px-6 pt-4 pb-4 mb-4 w-full fade-in">
             <div className="flex flex-row w-full">
-                <div className="flex flex-col w-1/5">
+                <div className="flex flex-col w-1/5 max-sm:hidden">
                     <img className="w-24 h-24 rounded-full mx-auto" src={image} alt="logo"/>
                 </div>
                 <div className="flex flex-col w-3/5 mr-3">

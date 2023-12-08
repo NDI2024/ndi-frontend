@@ -24,6 +24,7 @@ export const ApiRoutes = [
     {path: '/users/register', name: 'auth.register'},
     {path: '/me', name: 'auth.me'},
     {path: '/memorycards/:number', name: 'memorycards.get'},
+    {path: '/scores', name: 'scores.post'},
 ]
 
 export const router = createBrowserRouter(Routes)

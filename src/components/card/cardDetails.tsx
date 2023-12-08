@@ -14,7 +14,7 @@ export const CardDetails = ({card}: Props) => {
     return (
         <>
             <div
-                className="flex flex-col max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                className="flex flex-col max-w-sm bg-white px-2 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <img className="rounded-t-lg" src={card.imagePath} alt=""/>
                 <div className="p-5 items-stretch flex flex-col">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{

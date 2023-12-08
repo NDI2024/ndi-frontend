@@ -6,7 +6,7 @@ export const FastGameAnswer = ({answer, nextQuestion}: any) => {
             <Button type={"button"} onClick={() => {
                 nextQuestion(answer.isCorrect)
             }} className={"mt-2 mb-2"}>
-                {answer.answer}
+                {answer.reponseLabel}
             </Button>
         </>);
 }

@@ -24,3 +24,13 @@ export interface CardData {
     link: string;
     index: number;
 }
+
+export interface QuestionData {
+    id: string;
+    questionLabel: string;
+    reponses:[{
+        id: string;
+        reponseLabel: string;
+        isCorrect: boolean;
+    }];
+}

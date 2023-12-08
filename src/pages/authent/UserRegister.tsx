@@ -3,7 +3,7 @@ import {
     EmailValidation,
     InputWithLabel,
     PasswordValidation,
-    TextValidation
+    TextValidation, UserValidation
 } from "components/form/inputs/inputWithLabel";
 import {useState} from "react";
 import {Link} from "components/generic/link";
@@ -64,7 +64,7 @@ export const UserRegister = () => {
                                         <InputWithLabel type={'text'} label={t('Label.User')}
                                                         placeholder={t('Label.User')}
                                                         name={'user'}
-                                                        validationOptions={TextValidation}/>
+                                                        validationOptions={UserValidation}/>
                                     </div>
                                     <div>
                                         <InputWithLabel type={'email'} label={t('Label.Email')}

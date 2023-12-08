@@ -1,1 +1,1 @@
-export const SITE_NAME = 'Elisabeth';
+export const SITE_NAME = 'Ecopilot';

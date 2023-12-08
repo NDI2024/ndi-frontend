@@ -6,6 +6,7 @@ import {TiHome} from "react-icons/ti";
 import {getRoutePathByName} from "utils/routes";
 import {useTranslation} from "react-i18next";
 import {FaTrophy} from "react-icons/fa";
+import {TbError404Off} from "react-icons/tb";
 
 interface Props {
     children?: React.ReactNode
@@ -24,7 +25,10 @@ export const UserDashboardLayout = ({children}: Props) => {
                                        text={t('Label.Home page')}/>
                         </li>
                         <li>
-                            <NavButton to={'/'} icon={<FaTrophy/>} text={t('Label.Classment')}/>
+                            <NavButton to={getRoutePathByName('app.leaderboard')} icon={<FaTrophy/>} text={t('Label.Classment')}/>
+                        </li>
+                        <li>
+                            <NavButton to={'/cpt'} icon={<TbError404Off />}  text={'Tetris'}/>
                         </li>
                     </ul>
                 </Sidebar.Content>

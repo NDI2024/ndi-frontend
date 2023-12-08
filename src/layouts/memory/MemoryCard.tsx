@@ -9,10 +9,6 @@ interface Props {
 
 export const MemoryCard = ({cardData, returned}: Props) => {
 
-    useEffect(() => {
-        console.log(returned)
-    }, [returned])
-
     return (
         <>
             <div className="w-full flex items-center justify-center">

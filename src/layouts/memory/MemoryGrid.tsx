@@ -11,10 +11,6 @@ interface Props {
 
 export const MemoryGrid = ({cards, selectCardFn, returnedCards, cardsFound}: Props) => {
 
-    useEffect(() => {
-        console.log(returnedCards)
-    }, [returnedCards])
-
     const isReturned = (card: CardData) => {
         return returnedCards.includes(card) || cardsFound.includes(card)
     }

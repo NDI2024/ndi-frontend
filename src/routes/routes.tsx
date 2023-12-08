@@ -33,6 +33,7 @@ export const ApiRoutes = [
     {path: '/leaderboard/me', name: 'leaderboard.me.get' },
     {path: '/memorycards/:number', name: 'memorycards.get'},
     {path: '/scores', name: 'scores.post'},
+    {path: '/question/:number', name: 'question.get'},
 ]
 
 export const router = createBrowserRouter(Routes)

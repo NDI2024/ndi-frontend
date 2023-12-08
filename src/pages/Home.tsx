@@ -34,7 +34,6 @@ function Home() {
                                 Notre jeu offre une expérience ludique et éducative, parfaitement adaptée à tous les âges. Que vous soyez un joueur chevronné ou un novice passionné par les enjeux climatiques, ce jeu est conçu pour divertir tout en sensibilisant à l'urgence de prendre soin de notre environnement.
 
                             </p>
-                            <img src={photo} width={35}/>
                         </div>
                     </div>
 

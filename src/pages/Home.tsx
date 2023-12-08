@@ -1,6 +1,7 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
 import {getRoutePathByName} from "../utils/routes";
+import photo from "assets/illustrations/undraw_among_nature_p1xb.svg"
 
 function Home() {
     const navigate = useNavigate()
@@ -29,10 +30,11 @@ function Home() {
                                 Nous vous invitons alors à vous enregistrer ou à vous connecter !<br /><br />
 
                                 Plongez dans l'univers captivant de notre jeu de mémoire innovant qui combine le plaisir du jeu avec une mission éducative cruciale. Explorez les merveilles de notre planète tout en mettant à l'épreuve vos capacités de mémorisation et en apprenant des faits essentiels sur le climat.
-                                <br /><br />
+                                <br />
                                 Notre jeu offre une expérience ludique et éducative, parfaitement adaptée à tous les âges. Que vous soyez un joueur chevronné ou un novice passionné par les enjeux climatiques, ce jeu est conçu pour divertir tout en sensibilisant à l'urgence de prendre soin de notre environnement.
 
                             </p>
+                            <img src={photo} width={35}/>
                         </div>
                     </div>
 

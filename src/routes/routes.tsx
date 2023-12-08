@@ -6,7 +6,6 @@ import {RedirectIfTenantAuthenticated} from "components/hoc/authentication/tenan
 import {WithTenantAuthentication} from "components/hoc/authentication/tenants/withTenantAuthentication";
 import {Page403} from "pages/errors/page403";
 import {UserRegister} from "pages/authent/UserRegister";
-import {MemoryMainPage} from "pages/memory/MemoryMainPage";
 
 export const Routes = [
     // App routes

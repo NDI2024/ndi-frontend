@@ -62,8 +62,10 @@ export const MemoryMainPage = () => {
                     <LoadingSpinnerAnimation/> :
 
                     cardChecked &&
-                    <CardDescription title={cardChecked.title} description={cardChecked.shortDescription}
-                                     image={cardChecked.imagePath}/>
+                    <div className={'fixed bottom-0 right-0 w-full'}>
+                        <CardDescription title={cardChecked.title} description={cardChecked.shortDescription}
+                                         image={cardChecked.imagePath}/>
+                    </div>
 
             }
         </UserDashboardLayout>

@@ -24,7 +24,7 @@ export const UserDashboardLayout = ({children}: Props) => {
                                        text={t('Label.Home page')}/>
                         </li>
                         <li>
-                            <NavButton to={'/'} icon={<FaTrophy/>} text={t('Label.Classment')}/>
+                            <NavButton to={getRoutePathByName('app.leaderboard')} icon={<FaTrophy/>} text={t('Label.Classment')}/>
                         </li>
                     </ul>
                 </Sidebar.Content>

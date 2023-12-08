@@ -9,6 +9,7 @@ Le jeu de rapidité consiste à résoudre des questions sur le climat en identif
 Un tetris dans le thème est mis à disposition ainsi qu'un leaderboard !
 
 ## Informations
+Lien du site: https://ndi-frontend.vercel.app/
 Utilisateur de secours:
 - ndi2024
 - Motdepassendi2024!
